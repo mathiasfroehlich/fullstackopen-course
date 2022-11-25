@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const StatisticsLine = ({text, value}) => <p>{text} {value}</p>
+const StatisticsLine = ({text, value}) => <tr><td>{text}</td><td>{value}</td></tr>
 
 const Statistics = ({ good, neutral, bad }) => {
   const all = good + neutral + bad
@@ -8,14 +8,16 @@ const Statistics = ({ good, neutral, bad }) => {
   const positive = (good) / all * 100
   if (all > 0) {
     return (
-      <>
-        <StatisticsLine text='good' value={good} />
-        <StatisticsLine text='neutral' value={neutral} />
-        <StatisticsLine text='bad' value={bad} />
-        <StatisticsLine text='all' value={all} />
-        <StatisticsLine text='average' value={average} />
-        <StatisticsLine text='positive' value={positive} />
-      </>
+      <table>
+        <tbody>
+          <StatisticsLine text='good' value={good} />
+          <StatisticsLine text='neutral' value={neutral} />
+          <StatisticsLine text='bad' value={bad} />
+          <StatisticsLine text='all' value={all} />
+          <StatisticsLine text='average' value={average} />
+          <StatisticsLine text='positive' value={positive} />
+        </tbody>
+      </table>
     )
   } else {
     return (<p>No feedback given</p>)
