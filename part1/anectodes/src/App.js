@@ -12,13 +12,21 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
+  const [votes, addVotes] = useState(Array(anecdotes.length).fill(0))
 
   const getRandomAnectode = () => Math.floor(Math.random() * anecdotes.length)
+
+  const addVoteForSelected = () => {
+    const newVotes = [...votes]
+    newVotes[selected] += 1
+    addVotes(newVotes)
+  }
 
   return (
     <div>
       <p>{anecdotes[selected]}</p>
       <button onClick={() => setSelected(getRandomAnectode())}>Next anectode</button>
+      <button onClick={() => addVoteForSelected()}>vote</button>
     </div>
   )
 }
