@@ -22,11 +22,18 @@ const App = () => {
     addVotes(newVotes)
   }
 
+  // const getMaxVote = () => anecdotes[0]
+  const getMaxVote = () => {
+    const maxId = votes.indexOf(Math.max(...votes))
+    return maxId !== -1 ? anecdotes[maxId] : ''
+  }
+
   return (
     <div>
       <p>{anecdotes[selected]}</p>
       <button onClick={() => setSelected(getRandomAnectode())}>Next anectode</button>
       <button onClick={() => addVoteForSelected()}>vote</button>
+      <p>{getMaxVote()}</p>
     </div>
   )
 }
