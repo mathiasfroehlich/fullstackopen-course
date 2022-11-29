@@ -4,7 +4,7 @@
 sequenceDiagram
     participant server
     participant browser
-    user enters text into text field
+    Note right of browser: user enters text into text field
     browser->>server: POST new_note 
     server->>browser: REDIRECT GET notes
     server->>browser: GET main.css
