@@ -4,11 +4,14 @@
 sequenceDiagram
     participant server
     participant browser
-    Note right of browser: user enters text into text field
-    browser->>server: POST new_note 
-    server->>browser: REDIRECT GET notes
-    server->>browser: GET main.css
-    server->>browser: GET main.js 
-    server->>browser: GET data.json
+    Note right of browser: Browser executes eventhandler and posts form data
+    browser->>server: HTTP POST new_note 
+    Note over server: Server saves user input and sends redirect to browser
+    browser-->server: HTTP GET /notes
+    server-->browser: HTML-Code
+    browser->>server: HTTP GET main.css
+    server-->browser: main.css 
+    browser->>server: HTTP GET main.js 
+    server-->browser: main.js
 ```
 
