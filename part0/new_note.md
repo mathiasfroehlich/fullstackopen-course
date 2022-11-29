@@ -5,12 +5,10 @@ sequenceDiagram
     participant server
     participant browser
     user enters text into text field
-    browser --> server 
-    POST new_note 
-    REDIRECT 
-    GET notes
-    GET main.css
-    GET main.js 
-    GET data.json
+    browser->>server: POST new_note 
+    server->>browser: REDIRECT GET notes
+    server->>browser: GET main.css
+    server->>browser: GET main.js 
+    server->>browser: GET data.json
 ```
 
